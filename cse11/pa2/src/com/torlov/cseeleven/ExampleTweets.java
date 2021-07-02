@@ -2,14 +2,14 @@ package com.torlov.cseeleven;
 
 public class ExampleTweets {
     public static void main(String[] args) {
-
+        TestTweet asdf = new TestTweet();
     }
 
-    public class user {
+    public static class User {
         String userName;
         String fullName;
         int followers;
-        public user(String userName, String fullName, int followers) {
+        public User(String userName, String fullName, int followers) {
             this.userName = userName;
             this.fullName = fullName;
             this.followers = followers;
@@ -21,12 +21,12 @@ public class ExampleTweets {
         }
     }
 
-    public class tweet {
+    public static class Tweet {
         String content;
-        user user;
+        User user;
         int likes;
         String tweetID;
-        public tweet(String content, user user, int likes, String tweetID) {
+        public Tweet(String content, User user, int likes, String tweetID) {
             this.content = content;
             this.tweetID = tweetID;
             this.user = user;
@@ -34,16 +34,16 @@ public class ExampleTweets {
         }
 
         // compare which tweet has more characters
-        boolean longerThan(tweet otherTweet) {
+        boolean longerThan(Tweet otherTweet) {
             if (otherTweet.content.length() < content.length()) {
-            return true;
-        }
+                return true;
+            }
 
-        return false;
+            return false;
         }
 
         // compare which tweet has more likes
-        boolean moreLikes(tweet otherTweet) {
+        boolean moreLikes(Tweet otherTweet) {
             if (otherTweet.likes < likes) {
                 return true;
             }
@@ -52,8 +52,8 @@ public class ExampleTweets {
         }
 
         // a different user effectively copies the tweet
-        tweet retweet(user otherUser) {
-            tweet newTweet = new tweet(content, otherUser, 0, tweetID + "-rt");
+        Tweet retweet(User otherUser) {
+            Tweet newTweet = new Tweet(content, otherUser, 0, tweetID + "-rt");
 
             return newTweet;
         }
@@ -69,13 +69,18 @@ public class ExampleTweets {
         }
     }
 
-    public class testTweet {
+    public static class TestTweet {
         // game dev I follow
-        user projectMoon = new user("ProjMoonStudio", "ProjectMoon", 37500);
+        User projectMoon = new User("ProjMoonStudio", "ProjectMoon", 37500);
         // another game dev I follow
-        user regalis = new user("UnderTowGames", "Regalis", 5786);
-        //
-        user league = new user("LeagueOfLegends","League of Legends", 4900000);
+        User regalis = new User("UnderTowGames", "Regalis", 5786);
+        // game dev
+        User league = new User("LeagueOfLegends","League of Legends", 4900000);
+
+        Tweet projMoonNews = new Tweet("We are waiting for Steam's release permission.", projectMoon, 337, "1402136378318626836");
+        Tweet projMoonPatch = new Tweet("Patch Note ver 1.1.0.3 - Add battle symbols, Achievement, tutorial, small stories", projectMoon, 664, "1398240241249521667");
+        Tweet regalisUpdate = new Tweet("We're working on upgradable/swappable submarine weapons - here's a sneak peek of a new WIP weapon... #gamedev #indiegame #barotrauma #IndieGameDev", regalis, 147, "1387379385032904710");
+
+
     }
 }
-
