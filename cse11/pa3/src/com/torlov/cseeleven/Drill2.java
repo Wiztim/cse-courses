@@ -15,9 +15,8 @@ class C2 {
 }
 
 public class Drill2 {
-    C2 first;
-    C1 second;
-    C1 third;
-
-
+    C2 first = new C2(10);
+    C2 otherObject = new C2(12345);
+    C1 second = new C1(otherObject);
+    C1 third = new C1(first);
 }
