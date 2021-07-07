@@ -13,8 +13,15 @@ public class Drill4 {
         System.out.println(maxDifference(1, 2, 3));
         System.out.println("Testing maxDifference with input of 0, 3, 3, output should be 3)");
         System.out.println(maxDifference(0, 3, 3));
-        System.out.println("Testing maxDifference with input of -1, -2, -3, output should be 2)");
-        System.out.println(maxDifference(-1, -2, -3));
+        System.out.println("Testing maxDifference with input of 1, 1, 1, output should be 0)");
+        System.out.println(maxDifference(1, 1, 1));
+
+        System.out.println("Testing ringArea with input of 5 and 10, output should be 235.619)");
+        System.out.println(ringArea(5, 10));
+        System.out.println("Testing ringArea with input of 12 and 12, output should be 0)");
+        System.out.println(ringArea(12, 12));
+        System.out.println("Testing ringArea with input of 11 and 23, output should be 1281.77)");
+        System.out.println(ringArea(11, 23));
     }
 
     static String phaseOfWater(int temp) {

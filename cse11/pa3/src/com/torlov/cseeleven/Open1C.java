@@ -10,10 +10,10 @@ public class Open1C {
     }
 
     public static void main(String args[]) {
-        String hello = "Hello World!";
+        String helloWorld = "Hello World!";
         System.out.println("Doubling the string \"hello\":");
-        System.out.println(doubleLength(hello));
+        System.out.println(doubleLength(helloWorld));
         System.out.println("Halving the string \"hello\":");
-        System.out.println(halveLength(hello));
+        System.out.println(halveLength(helloWorld));
     }
 }

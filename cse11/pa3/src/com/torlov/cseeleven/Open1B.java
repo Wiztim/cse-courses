@@ -1,6 +1,7 @@
 package com.torlov.cseeleven;
 
 public class Open1B {
+    // causes a compile error
     int numbers = 123;
     //String numbers = "123";
 
