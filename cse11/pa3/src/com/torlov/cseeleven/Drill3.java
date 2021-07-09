@@ -1,16 +1,19 @@
-package com.torlov.cseeleven;
+public class Drill3 {
 
+
+
+}
 
 class TextTweet {
     String contents;
     int likes;
 
-    TextTweet(String contents, int likes) {
+    public TextTweet(String contents, int likes) {
         this.contents = contents;
         this.likes = likes;
     }
 
-    boolean hasMention(String username) {
+    public boolean hasMention(String username) {
         String[] words = contents.split(" ");
         username = "@" + username;
 
@@ -23,11 +26,11 @@ class TextTweet {
         return false;
     }
 
-    boolean hasLike() {
+    public boolean hasLike() {
         return likes > 0;
     }
 
-    String firstMention() {
+    public String firstMention() {
         String[] words = contents.split(" ");
 
         for (String word : words) {
@@ -45,21 +48,21 @@ class ReplyTweet {
     String contents;
     int likes;
 
-    ReplyTweet(TextTweet replyTo, String contents, int likes) {
+    public ReplyTweet(TextTweet replyTo, String contents, int likes) {
         this.replyTo = replyTo;
         this.contents = contents;
         this.likes = likes;
     }
 
-    boolean morePopularReply() {
+    public boolean morePopularReply() {
         return likes > replyTo.likes;
     }
 
-    int allLikes() {
+    public int allLikes() {
         return likes + replyTo.likes;
     }
 
-    boolean hasMention(String username) {
+    public boolean hasMention(String username) {
         String[] words = contents.split(" ");
         username = "@" + username;
 
@@ -69,9 +72,6 @@ class ReplyTweet {
             }
         }
 
-        return replyTo.hasMention(username);
+        return replyTo.hasMention(username.substring(1));
     }
-}
-public class Drill3 {
-
 }

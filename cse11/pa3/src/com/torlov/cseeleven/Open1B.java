@@ -1,7 +1,5 @@
-package com.torlov.cseeleven;
-
 public class Open1B {
-    // causes a compile error
+    // showing that 2 variables can't have same names despite different types
     int numbers = 123;
     //String numbers = "123";
 

@@ -1,5 +1,3 @@
-package com.torlov.cseeleven;
-
 public class Drill4 {
     public static void main(String args[]) {
         System.out.println("Testing phaseOfWater with input of 111, output should be \"vapor\")");
@@ -24,7 +22,7 @@ public class Drill4 {
         System.out.println(ringArea(11, 23));
     }
 
-    static String phaseOfWater(int temp) {
+    public static String phaseOfWater(int temp) {
         if (temp >= 100) {
             return "vapor";
         }
@@ -36,13 +34,13 @@ public class Drill4 {
         return "liquid";
     }
 
-    static int maxDifference(int first, int second, int third) {
+    public static int maxDifference(int first, int second, int third) {
         int max = Math.max(first, Math.max(second, third));
         int min = Math.min(first, Math.min(second, third));
         return max - min;
     }
 
-    static double ringArea(double innerRadius, double outerRadius) {
+    public static double ringArea(double innerRadius, double outerRadius) {
         double innerArea = Math.pow(innerRadius, 2);
         double outArea = Math.pow(outerRadius, 2);
         return Math.PI * (outArea - innerArea);

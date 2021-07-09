@@ -1,5 +1,3 @@
-package com.torlov.cseeleven;
-
 public class Open1A {
     public static void main(String args[]) {
         Dog germanShepard = new Dog("German Shepard");

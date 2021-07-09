@@ -1,5 +1,3 @@
-package com.torlov.cseeleven;
-
 public class ExamplesR {
     // using a null object, we can create an R object, even though it needs an R as a parameter
     // therefore, we can construct this object

@@ -1,5 +1,3 @@
-package com.torlov.cseeleven;
-
 public class Open1C {
     static String doubleLength(String words) {
         return words + words;
