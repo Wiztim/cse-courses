@@ -26,19 +26,43 @@ public class ExamplesNumber {
         }
 
         public Number add(Number other) {
-            return other;
+            if (other.getClass() == null) {
+                return null;
+            }
+
+            else if (other.getClass() == WholeNumber.class) {
+                return new WholeNumber(n + other.numerator());
+            }
+
+            else if (other.getClass() == Fraction.class) {
+                return new Fraction(n * other.denominator() + other.numerator(), other.denominator());
+            }
+
+            return null;
         }
 
         public Number multiply(Number other) {
-            return other;
+            if (other.getClass() == null) {
+                return null;
+            }
+
+            else if (other.getClass() == WholeNumber.class) {
+                return new WholeNumber(n * other.numerator());
+            }
+
+            else if (other.getClass() == Fraction.class) {
+                return new Fraction(n * other.numerator(), other.denominator());
+            }
+
+            return null;
         }
 
         public String toString() {
-            return "";
+            return Integer.toString(n);
         }
 
         public double toDouble() {
-            return 0;
+            return n;
         }
     }
 
@@ -46,7 +70,7 @@ public class ExamplesNumber {
         private int n;
         private int d;
 
-        Fraction(int n) {
+        Fraction(int n, int d) {
             this.n = n;
             this.d = d;
         }
@@ -60,19 +84,35 @@ public class ExamplesNumber {
         }
 
         public Number add(Number other) {
-            return other;
+            if (other.getClass() == null) {
+                return null;
+            }
+
+            else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
+                return new Fraction(n * other.denominator() + d * other.numerator(), d * other.denominator());
+            }
+
+            return null;
         }
 
         public Number multiply(Number other) {
-            return other;
+            return if (other.getClass() == null) {
+                return null;
+            }
+
+            else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
+                return new Fraction(n * other.numerator(), d * other.denominator());
+            }
+
+            return null;;
         }
 
         public String toString() {
-            return "";
+            return Integer.toString(n) + "/" + Integer.toString(d);
         }
 
         public double toDouble() {
-            return 0;
+            return n / d;
         }
     }
 }
