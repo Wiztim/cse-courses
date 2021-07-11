@@ -1,27 +1,23 @@
-package com.torlov.cseeleven;
+//package com.torlov.cseeleven;
 
-public class ReplyTweet implements Tweets {
-    private String contents;
-    private String author;
-    private int likes;
-    private Tweets replyTo;
+public class ReplyTweet extends Tweet {
 
-    ReplyTweet (String contents, String author, int likes, Tweets replyTo) {
-        this.contents = contents;
-        this.author = author;
-        this.likes = likes;
+    private Tweet replyTo;
+
+    ReplyTweet (String contents, String author, int likes, Tweet replyTo) {
+        super(contents, author, likes);
         this.replyTo = replyTo;
     }
 
     public boolean isStartOfThreadBy(String author) {
-        return this.author.equals(author);
+        return replyTo.isStartOfThreadBy(author);
     }
 
     public int totalLikes() {
-        return likes;
+        return replyTo.totalLikes() + likes;
     }
 
     public String unrollThread() {
-        return replyTo.unrollThread() + author + "\n" + likes + " likes\n" + contents;
+        return replyTo.unrollThread() + super.unrollThread();
     }
 }
