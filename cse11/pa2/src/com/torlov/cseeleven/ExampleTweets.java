@@ -1,5 +1,3 @@
-package com.torlov.cseeleven;
-
 public class ExampleTweets {
     public static void main(String[] args) {
         TestTweet testTweets = new TestTweet();
