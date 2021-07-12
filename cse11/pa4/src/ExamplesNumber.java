@@ -117,7 +117,6 @@ class Fraction implements Number {
 
 public class ExamplesNumber {
 
-
     Number number = new WholeNumber(5);
 
     public boolean testToString(Tester t) {
