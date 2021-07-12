@@ -1,78 +1,131 @@
+import tester.*;
 
+interface Number {
+    int numerator();
+    int denominator();
+    Number add(Number other);
+    Number multiply(Number other);
+    String toString();
+    double toDouble();
+}
+
+class WholeNumber implements Number {
+    private int n;
+
+    WholeNumber(int n) {
+        this.n = n;
+    }
+
+    public int numerator() {
+        return this.n;
+    }
+
+    public int denominator() {
+        return 1;
+    }
+
+    public Number add(Number other) {
+        if (other == null) {
+            return null;
+        }
+
+        else if (other.getClass() == WholeNumber.class) {
+            return new WholeNumber(this.n + other.numerator());
+        }
+
+        else if (other.getClass() == Fraction.class) {
+            return new Fraction(this.n * other.denominator() + other.numerator(), other.denominator());
+        }
+
+        return null;
+    }
+
+    public Number multiply(Number other) {
+        if (other == null) {
+            return null;
+        }
+
+        else if (other.getClass() == WholeNumber.class) {
+            return new WholeNumber(this.n * other.numerator());
+        }
+
+        else if (other.getClass() == Fraction.class) {
+            return new Fraction(this.n * other.numerator(), other.denominator());
+        }
+
+        return null;
+    }
+
+    public String toString() {
+        return Integer.toString(n);
+    }
+
+    public double toDouble() {
+        return this.n;
+    }
+}
+
+class Fraction implements Number {
+    private int n;
+    private int d;
+
+    Fraction(int n, int d) {
+        this.n = n;
+        this.d = d;
+    }
+
+    public int numerator() {
+        return this.n;
+    }
+
+    public int denominator() {
+        return this.d;
+    }
+
+    public Number add(Number other) {
+        if (other == null) {
+            return null;
+        }
+
+        else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
+            return new Fraction(this.n * other.denominator() + d * other.numerator(), d * other.denominator());
+        }
+
+        return null;
+    }
+
+    public Number multiply(Number other) {
+        if (other == null) {
+            return null;
+        }
+
+        else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
+            return new Fraction(this.n * other.numerator(), d * other.denominator());
+        }
+
+        return null;
+    }
+
+    public String toString() {
+        return Integer.toString(n) + "/" + Integer.toString(d);
+    }
+
+    public double toDouble() {
+        return (double) (this.n) / this.d;
+    }
+}
 
 public class ExamplesNumber {
-    interface Number {
-        int numerator();
-        int denominator();
-        Number add(Number other);
-        Number multiply(Number other);
-        String toString();
-        double toDouble();
+
+    Number number = new WholeNumber(5);
+
+    public boolean testToString(Tester t) {
+        return t.checkExpect(number.toString(),"5");
     }
 
-    public class WholeNumber implements Number {
-        private int n;
-
-        WholeNumber(int n) {
-            this.n = n;
-        }
-
-        public int numerator() {
-            return n;
-        }
-
-        public int denominator() {
-            return 1;
-        }
-
-        public Number add(Number other) {
-            return other;
-        }
-
-        public Number multiply(Number other) {
-            return other;
-        }
-
-        public String toString() {
-            return "";
-        }
-
-        public double toDouble() {
-            return 0;
-        }
-    }
-
-    public class Fraction implements Number {
-        private int n;
-        private int d;
-
-        Fraction(int n) {
-            this.n = n;
-            this.d = d;
-        }
-
-        public int numerator() {
-            return n;
-        }
-
-        public int denominator() {
-            return d;
-        }
-
-        public Number add(Number other) {
-            return other;
-        }
-
-        public Number multiply(Number other) {
-            return other;
-        }
-
-        public String toString() {
-            return "";
-        }
-
-        public double toDouble() {
-            return 0;
-        }
-    }
+    // Exploration
+    double num1 = 0.1 + 0.2 + 0.3;
+    double num2 = 0.1 + (0.2 + 0.3);
+    String stringNum1 = Double.toString(num1);
+    String stringNum2 = Double.toString(num2);
 }
