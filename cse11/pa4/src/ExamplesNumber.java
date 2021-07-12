@@ -17,7 +17,7 @@ class WholeNumber implements Number {
     }
 
     public int numerator() {
-        return n;
+        return this.n;
     }
 
     public int denominator() {
@@ -25,32 +25,32 @@ class WholeNumber implements Number {
     }
 
     public Number add(Number other) {
-        if (other.getClass() == null) {
+        if (other == null) {
             return null;
         }
 
         else if (other.getClass() == WholeNumber.class) {
-            return new WholeNumber(n + other.numerator());
+            return new WholeNumber(this.n + other.numerator());
         }
 
         else if (other.getClass() == Fraction.class) {
-            return new Fraction(n * other.denominator() + other.numerator(), other.denominator());
+            return new Fraction(this.n * other.denominator() + other.numerator(), other.denominator());
         }
 
         return null;
     }
 
     public Number multiply(Number other) {
-        if (other.getClass() == null) {
+        if (other == null) {
             return null;
         }
 
         else if (other.getClass() == WholeNumber.class) {
-            return new WholeNumber(n * other.numerator());
+            return new WholeNumber(this.n * other.numerator());
         }
 
         else if (other.getClass() == Fraction.class) {
-            return new Fraction(n * other.numerator(), other.denominator());
+            return new Fraction(this.n * other.numerator(), other.denominator());
         }
 
         return null;
@@ -61,7 +61,7 @@ class WholeNumber implements Number {
     }
 
     public double toDouble() {
-        return n;
+        return this.n;
     }
 }
 
@@ -75,32 +75,32 @@ class Fraction implements Number {
     }
 
     public int numerator() {
-        return n;
+        return this.n;
     }
 
     public int denominator() {
-        return d;
+        return this.d;
     }
 
     public Number add(Number other) {
-        if (other.getClass() == null) {
+        if (other == null) {
             return null;
         }
 
         else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
-            return new Fraction(n * other.denominator() + d * other.numerator(), d * other.denominator());
+            return new Fraction(this.n * other.denominator() + d * other.numerator(), d * other.denominator());
         }
 
         return null;
     }
 
     public Number multiply(Number other) {
-        if (other.getClass() == null) {
+        if (other == null) {
             return null;
         }
 
         else if (other.getClass() == Fraction.class || other.getClass() == WholeNumber.class) {
-            return new Fraction(n * other.numerator(), d * other.denominator());
+            return new Fraction(this.n * other.numerator(), d * other.denominator());
         }
 
         return null;
@@ -111,7 +111,7 @@ class Fraction implements Number {
     }
 
     public double toDouble() {
-        return (double) (n) / d;
+        return (double) (this.n) / this.d;
     }
 }
 
