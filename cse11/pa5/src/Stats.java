@@ -57,8 +57,7 @@ public class Stats {
                 break;
 
             default:
-                System.out.println("Bad option");
-                System.out.println(args[0]);
+                System.out.println("Bad option " + args[0]);
                 break;
         }
     }
