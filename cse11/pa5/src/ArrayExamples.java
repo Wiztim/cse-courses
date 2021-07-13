@@ -7,18 +7,19 @@ public class ArrayExamples {
             return "";
         }
 
-        String joinedArray = stringArray[0];
+        StringBuilder word = new StringBuilder(stringArray[0]);
         for (int i = 1; i < stringArray.length; i++) {
-            joinedArray += separator + stringArray[i];
+            word.append(separator);
+            word.append(stringArray[i]);
         }
 
-        return joinedArray;
+        return word.toString();
     }
 
     // returns true if all booleans are true
     boolean allTrue(boolean[] booleanArray) {
-        for(int i = 0; i < booleanArray.length; i++) {
-            if (!booleanArray[i]) {
+        for (boolean bool : booleanArray) {
+            if (!bool) {
                 return false;
             }
         }
@@ -28,8 +29,8 @@ public class ArrayExamples {
 
     // returns true if all numbers in array are within low and high (inclusive)
     boolean allWithinRange(double[] numArray, double low, double high) {
-        for(int i = 0; i < numArray.length; i++) {
-            if(numArray[i] < low || numArray[i] > high) {
+        for (double num : numArray) {
+            if (num < low || num > high) {
                 return false;
             }
         }
@@ -37,20 +38,19 @@ public class ArrayExamples {
     }
 
     // creates a pair object with the lowest and highest
-    Pair maxim(int[] numArray) {
+    Pair maxmin(int[] numArray) {
         int highest = numArray[0];
         int lowest = numArray[0];
 
-        for(int i = 0; i < numArray.length; i++) {
-            if(highest < numArray[i]) {
-                highest = numArray[i];
-            }
-            else if(lowest > numArray[i]) {
-                lowest = numArray[i];
+        for (int num : numArray) {
+            if (highest < num) {
+                highest = num;
+            } else if (lowest > num) {
+                lowest = num;
             }
         }
 
-        return new Pair(lowest,highest);
+        return new Pair(lowest, highest);
     }
 
     // returns the alphabetically first string
@@ -133,10 +133,10 @@ public class ArrayExamples {
 
 
     boolean testMaxim(Tester t) {
-        return t.checkExpect(maxim(intArr1), new Pair(1, 7)) &&
-                t.checkExpect(maxim(intArr2), new Pair(-1, 1)) &&
-                t.checkExpect(maxim(intArr3), new Pair(-1, 2)) &&
-                t.checkExpect(maxim(intArr4), new Pair(1, 7));
+        return t.checkExpect(maxmin(intArr1), new Pair(1, 7)) &&
+                t.checkExpect(maxmin(intArr2), new Pair(-1, 1)) &&
+                t.checkExpect(maxmin(intArr3), new Pair(-1, 2)) &&
+                t.checkExpect(maxmin(intArr4), new Pair(1, 7));
     }
 
     String[] keys = {"UCSD", "UCLA", "UCI"};
