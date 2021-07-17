@@ -9,16 +9,16 @@ public class LongStrings {
             }
         }
 
-        String[] longStrings = new String[count];
+        String[] longStringArr = new String[count];
         int index = 0;
         for (String string : stringArr) {
             if (string.length() >= stringLength) {
-                longStrings[index] = string;
+                longStringArr[index] = string;
                 index++;
             }
         }
 
-        return longStrings;
+        return longStringArr;
     }
 
     String[] stringArr1 = {};

@@ -13,7 +13,7 @@ public class AveragePositives {
             }
         }
 
-        if (average != 0) {
+        if (count != 0) {
             average /= count;
         }
 
