@@ -1,37 +1,33 @@
+import java.util.List;
+
 public class Queries {
     // matches text lines if they have the same length
-    String[] matchLength(String[] fileText, int length) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> matchLength(List<String> fileText, int length) {
+        return fileText.stream().filter(string -> string.length() == length).toList();
     }
 
     // matches text lines if they are longer than the int
-    String[] greaterLength(String[] fileText, int length) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> greaterLength(List<String> fileText, int length) {
+        return fileText.stream().filter(string -> string.length() > length).toList();
     }
 
     // matches text lines if they are shorter than the int
-    String[] lessLength(String[] fileText, int length) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> lessLength(List<String> fileText, int length) {
+        return fileText.stream().filter(string -> string.length() < length).toList();
     }
 
     // matches text lines if they contain the string
-    String[] containsString(String[] fileText, String string) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> containsString(List<String> fileText, String matchToString) {
+        return fileText.stream().filter(string -> string.contains(matchToString)).toList();
     }
 
     // matches lines starting with the provided string
-    String[] startsWith(String[] fileText, String string) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> startsWith(List<String> fileText, String matchToString) {
+        return fileText.stream().filter(string -> string.startsWith(matchToString)).toList();
     }
 
     // matches lines ending with the provided string
-    String[] endWith(String[] fileText, String string) {
-        String[] matchedString = new String[0];
-        return matchedString;
+    List<String> endWith(List<String> fileText, String matchToString) {
+        return fileText.stream().filter(string -> string.endsWith(matchToString)).toList();
     }
 }
