@@ -1,36 +1,64 @@
-public class Transformations {
-    // modifies the lines to be all upper case
-    String[] upperCase(String[] fileText) {
-        String[] modifiedString = new String[fileText.length];
+import java.util.ArrayList;
+import java.util.Locale;
 
-        return modifiedString;
+public interface Transformations {
+    String transform(String line);
+}
+
+class UpperCaseTransformation implements Transformations {
+    public String transform (String line) {
+        return line.toUpperCase();
+    }
+}
+
+class LowerCaseTransformation implements Transformations {
+    public String transform (String line) {
+        return line.toLowerCase();
+    }
+}
+
+class GetBeginningTransformation implements Transformations {
+    int length;
+
+    GetBeginningTransformation (int length) {
+        this.length = length;
     }
 
-    // modifies the lines to be all lower case
-    String[] lowerCase(String[] fileText) {
-        String[] modifiedString = new String[fileText.length];
+    public String transform (String line) {
+        if (line.length() < this.length) {
+            return line;
+        }
 
-        return modifiedString;
+        return line.substring(0, this.length);
+    }
+}
+
+class GetEndingTransformation implements Transformations {
+    int length;
+
+    GetEndingTransformation (int length) {
+        this.length = length;
     }
 
-    // keeps on the first int amount of characters
-    String[] takeFirst(String[] fileText, int position) {
-        String[] modifiedString = new String[fileText.length];
+    public String transform (String line) {
+        if (line.length() < this.length) {
+            return line;
+        }
 
-        return modifiedString;
+        return line.substring(line.length() - this.length);
+    }
+}
+
+class ReplaceTransformation implements Transformations {
+    String toReplace;
+    String replacement;
+
+    ReplaceTransformation (String toReplace, String replacement) {
+        this.toReplace = toReplace;
+        this.replacement = replacement;
     }
 
-    // keeps only the last int amount of characters
-    String[] takeLast(String[] fileText, int position) {
-        String[] modifiedString = new String[fileText.length];
-
-        return modifiedString;
-    }
-
-    // replaces all instances of the first string with the second string
-    String[] replaceInstance(String[] fileText, String toReplace, String replacement) {
-        String[] modifiedString = new String[fileText.length];
-
-        return modifiedString;
+    public String transform (String line) {
+        return line.replaceAll(toReplace, replacement);
     }
 }
