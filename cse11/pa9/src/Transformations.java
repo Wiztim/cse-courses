@@ -74,15 +74,14 @@ class RangeTransformation implements Transformations {
     }
 
     public String transform (String line) {
-        if (!(line.length() < endIndex)) {
-            line = line.substring(0, endIndex);
-        }
-
         if (line.length() < beginIndex) {
             return "";
         }
 
-        line = line.substring(beginIndex);
-        return line;
+        if (line.length() < endIndex) {
+            endIndex = line.length();
+        }
+
+        return line.substring(beginIndex, endIndex);
     }
 }
